@@ -1,0 +1,6 @@
+OUTPUT:
+
+i) The slope of line BC is: -8 / 7 
+
+ii) The equation of line perpendicular to BC and passing
+through the point A is given by: 8 y - 7 x  = 43
