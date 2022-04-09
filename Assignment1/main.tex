@@ -1,68 +1,94 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+%\RequirePackage{amsmath}
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
-\usepackage{amsmath}
-\usepackage{tcolorbox}
-\usepackage{amssymb}
-\usepackage{amsthm}
+ \usepackage[utf8]{inputenc}
+ \usepackage{graphicx}
+ \usepackage{amsmath}
+ \usepackage{amsfonts}
+ \usepackage{amssymb}
+ \usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[breaklinks=false]{hyperref}
+\usepackage{listings}
+\usepackage{calc}
 
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\title{Probability and Random Variables\\Assignment 1}
+\author{Mayuri Chourasia\\BT21BTECH11001}
+\date{}
 \begin{document}
-     \title{Probability and Random Variables\\Assignment 1}
-     \author{Mayuri Chourasia$^{*}$\\BT21BTECH11001}
-     \maketitle
-     \section*{\textbf{Question 8 (B)\\ICSE 2019 PAPER}}
-     The vertices of a triangle ABC are A(3,8), B(-1,2) and C (6,-6). Find:\\
-     (i) Slope of BC\\
-     (ii) Equation of a line perpendicular to BC and passing through A.
-     \section*{\textbf{ANSWER}}
-     \subsection*{PART 1:}
-     
-     Let $(x_2,y_2)$ be the co-ordinates of point B(-1,2),
-     So,\\
-     $x_2=-1$\\
-     $y_2= 2$\\
-     
-     Let $(x_3,y_3)$ be the co-ordinates of point C(6,-6),\\
-     So,\\
-     $x_3= 6$\\
-     $y_3= -6$\\
-    
-     To find the slope between two points, we use the
-     slope point formula. For two points, $(x_2,y_2)$ and
-     $(x_3,y_3)$, the point-slope formula is given by:\\
-     \[\text{Slope} = \frac{y_2-y_1}{x_2-x_1}\ \]
-     Therefore, the slope of line BC will be given as:\\
-     \begin{align*}
-         \text{Slope} &= \frac{(-6)-2)}{(6-(-1))}\\
-         &=\frac{-8}{7}
-     \end{align*}
-     \medskip
-     \begin{tcolorbox}
-     \begin{center}
-         {\textbf{The slope of line BC is -8/7.}}
-     \end{center}
-     \end{tcolorbox}
-     \subsection*{PART 2:}
-     Let slope of line perpendicular to BC be Slope(2), and let slope of line BC be Slope(1)\\
-     we know that,\\
-     \begin{align*}
-         \text{Slope(2)} &= -\frac{1}{\text{{Slope(1)}}}\\
-         &=-\frac{\text{1}}{(-8/7)}\\
-         &=\frac{7}{8}\\
-     \end{align*}
-     In general case, for a line passing through a point $(x_1,y_1)$ and having a slope m can be given by the equation :\\
-     \begin{equation*}
-         (y - y_1) = m ( x - x_1)
-     \end{equation*}
-     \medskip\\
-     Therefore, the equation of a line passing through the point A(3,8) and having a slope of  7/8 will be given as :\\
-     \begin{align*}
-         ( y – 8 ) &= 7/8( x – 3 )\\
-         8( y - 8 )&= 7(x – 3 )\\
-         8y – 64 &= 7x - 21\\
-         8y – 7x &= 43\\
-     \end{align*}
-     \begin{tcolorbox}
-     \begin{center}
-          \textbf{{The equation of line perpendicular to B and passing through A(3,8) is\\  8y – 7x = 43}}
-     \end{center}
-     \end{tcolorbox}
-\end{document}
+% make the title area
+\maketitle
+\question
+\begin{enumerate}[label=]
+\item The vertices of a triangle ABC are A(3,8), B(-1,2) and C (6,-6). Find:
+\begin{enumerate}
+    \item Slope of BC
+    \item Equation of a line perpendicular to BC and passing through A
+\end{enumerate}
+\end{enumerate}
+\solution
+\begin{enumerate}
+\item Let $\vec{A}, \vec{B}, \vec{C}$ be the points vectors.
+	\begin{align}
+		\vec{A} = \myvec{3 \\ 8} ,
+		\vec{B} = \myvec{-1 \\ 2}  ,
+		\vec{C} = \myvec{6 \\ -6}
+	\end{align}
+	$\therefore$ The direction vector of $BC$ is,
+    \begin{align}
+    &\vec{d} = \vec{C} - \vec{B}
+    \\
+	&\vec{d} = \myvec{6 \\ -6} - \myvec{-1 \\ 2}
+	\\
+	&\vec{d} = \myvec{7 \\ -8}
+    \end{align}
+    We know that, if the direction vector of a line is represented by a matrix \vec{d}=\myvec{d_1\\d_2} then the slope for the same can be represented by $(\frac{d_2}{d_1})$.\\
+    \medskip\\
+    Therefore in this case the slope can be given as:
+    \begin{align}
+        m=\frac{-8}{7}
+    \end{align}
+    \textbf{The slope of BC is $\frac{-8}{7}$}
+    \medskip\\
+\item Now, let \textbf{z} be the normal vector of the line BC, hence we know that;
+    \begin{align}
+	\vec{d}^{\top}\vec{z} &= 0
+	\\
+	\myvec{7 & -8}\vec{z} &= 0
+	\\
+	\vec{z} &= \myvec{8 \\ 7}
+	\\
+	\vec{z}^{\top} &= \myvec{8 & 7}
+    \end{align}
+     Let L be the line that passes through A and is perpendicular to BC, and let \textbf{n} be the normal vector of the line L, in such a case we can say that;
+     \begin{align}
+	\vec{z}^{\top}\vec{n} &= 0
+	\\
+	\myvec{8 & 7}\vec{n} &= 0
+	\\
+	\vec{n} &= \myvec{7 \\ -8}
+	\\
+	\vec{n}^{\top} &= \myvec{7 & -8}
+    \end{align}
+    The normal equation of the line L is given by, 
+    \begin{align}
+	\vec{n}^{\top}(\vec{X} - \vec{A}) &= 0
+	\\
+	\myvec{7 & -8}(\myvec{x \\ y} - \myvec{3 \\ 8})&= 0
+	\\
+	\myvec{7 & -8}\myvec{x - 3 \\ y - 8} &= 0
+    \end{align}
+    \textbf{Thus, line L $\equiv \myvec{7 & -8}\myvec{x - 3 \\ y - 8} = 0$}
+\end{enumerate}
+\end{document} 
