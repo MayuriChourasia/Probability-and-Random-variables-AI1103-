@@ -1,0 +1,87 @@
+\let\negmedspace\undefined
+\let\negthickspace\undefined
+%\RequirePackage{amsmath}
+\documentclass[journal,12.00pt,twocolumn]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage[breaklinks=false]{hyperref}
+\usepackage{listings}
+\usepackage{calc}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+\let\vec\mathbf
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\newcommand{\question}{\noindent \textbf{Question: }}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\title{Probability and Random Variables\\Assignment 2}
+\author{Mayuri Chourasia\\BT21BTECH11001}
+\date{}
+\begin{document}
+% make the title area
+\maketitle
+\question Solve the following system of linear equations using matrix method :
+\begin{align}
+	\frac{1}{x}+\frac{1}{y}+\frac{1}{z} &= 9 \nonumber \\
+	\frac{2}{x}+\frac{5}{y}+\frac{7}{z} &= 52 \nonumber \\
+	\frac{2}{x}+\frac{1}{y}-\frac{1}{z} &= 0 
+\nonumber
+\end{align}
+   \solution Let us substitute {$a$} with $\frac{1}{x}$, $b$ with $\frac{1}{y}$ and $c$ with $\frac{1}{z}$ in the given system of linear equations.\\
+   we get,
+   \begin{align}
+       a+b+c &=9\\
+       2a+5b+7c &=52\\
+       2a+b-c &=0
+   \end{align}
+   In order to represent the above system of equation in the form of matrices,\\ we can write that, 
+   \begin{align}
+       \vec{A}\vec{X}=\vec{B}
+   \end{align}
+   where,
+   \begin{align}
+       \vec{A}=\myvec{1 & 1 & 1 \\ 2 & 5 & 7 \\ 2 & 1 & -1}, \vec{X}=\myvec{a\\b\\c}, \vec{B}=\myvec{9\\52\\0}
+   \end{align}
+   \medskip\\
+   Forming the augmented matrix and pivoting,  
+\begin{align}
+	&\myvec{\circled{1} & 1 & 1 & \vrule & 1 & 0 & 0\\ 2 & 5 & 7 & \vrule & 0 & 1 & 0\\ 2 & 1 & -1 & \vrule & 0 & 0 & 1}\\
+	\xleftrightarrow [R_2\leftarrow R_2 - 2R_1]{R_3\leftarrow R_3 - 2R_1}
+	&\myvec{1 & 1 & 1 & \vrule & 1 & 0 & 0\\ 0 & \circled{3} & 5 & \vrule & -2 & 1 & 0\\ 0 & -1 & -3 & \vrule & -2 & 0 & 1}\\
+	\xleftrightarrow [R_1\leftarrow 3R_1 - R_2]{R_3\leftarrow 3R_3 + R_2}
+	&\myvec{3 & 0 & -2 & \vrule & 5 & -1 & 0\\ 0 & 3 & 5 & \vrule & -2 & 1 & 0\\ 0 & 0 & \circled{-4} & \vrule & -8 & 1 & 3}\\
+  \xleftrightarrow [R_1\leftarrow 2R_1 - R_3]{R_2\leftarrow 4R_2 + 5R_3}
+	&\myvec{6 & 0 & 0 & \vrule & 18 & -3 & -3\\ 0 & 12 & 0 & \vrule & -48 & 9 & 15\\ 0 & 0 & -4 & \vrule & -8 & 1 & 3}\\
+	\xleftrightarrow [R_1\leftarrow 2R_1]{R_3\leftarrow -3R_3}
+	&\myvec{12 & 0 & 0 & \vrule & 36 & -6 & -6\\ 0 & 12 & 0 & \vrule & -48 & 9 & 15\\ 0 & 0 & 12 & \vrule & 24 & -3 & -9}
+  \end{align}
+  After pivoting the formed augmented matrix, we get:
+\begin{align}
+	\vec{A}^{-1} = \frac{1}{12}\myvec{ 36 & -6 & -6\\ -48 & 9 & 15\\ 24 & -3 & -9}
+\end{align}
+Thus, letting 
+\begin{align}
+	\vec{X} &= \vec{A}^{-1}\vec{B}\\
+	\myvec{a\\b\\c}&=\frac{1}{12}\myvec{ 36 & -6 & -6\\ -48 & 9 & 15\\ 24 & -3 & -9}\myvec{9\\52\\0}\\ 
+	\myvec{a\\b\\c}&= \myvec{ 1 \\ 3 \\ 5}
+\end{align}
+From the above equation, we get, $a=1$, $b=3$, $c=5$.\\
+\medskip\\
+Now, lets re-substitute a , b, and c as:\\
+\begin{align}
+    a\xleftrightarrow[]{}\frac{1}{x}, b\xleftrightarrow[]{}\frac{1}{y}, c\xleftrightarrow[]{}\frac{1}{z}
+\end{align}
+\medskip\\
+thus, we get the following as our final answer:
+\begin{align}
+  x=1, y=\frac{1}{3}, z=\frac{1}{5}
+\end{align}
+\end{document}
