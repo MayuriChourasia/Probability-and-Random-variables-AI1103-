@@ -61,29 +61,29 @@
     \end{align}
     \textbf{The slope of BC is $\frac{-8}{7}$}
     \medskip\\
-\item Now, let \textbf{z} be the normal vector of the line BC, hence we know that;
+\item Now, let $n_{BC}$ be the normal vector of the line BC, hence we know that;
     \begin{align}
-	\vec{d}^{\top}\vec{z} &= 0
+	\vec{d}^{\top}\vec{n_{BC}} &= 0
 	\\
-	\myvec{7 & -8}\vec{z} &= 0
+	\myvec{7 & -8}\vec{n_{BC}} &= 0
 	\\
-	\vec{z} &= \myvec{8 \\ 7}
+	\vec{n_{BC}} &= \myvec{8 \\ 7}
 	\\
-	\vec{z}^{\top} &= \myvec{8 & 7}
+	\vec{n_{BC}^{\top}} &= \myvec{8 & 7}
     \end{align}
-     Let L be the line that passes through A and is perpendicular to BC, and let \textbf{n} be the normal vector of the line L, in such a case we can say that;
+     Let L be the line that passes through A and is perpendicular to BC, and let $n_L$ be the normal vector of the line L, in such a case we can say that;
      \begin{align}
-	\vec{z}^{\top}\vec{n} &= 0
+	\vec{n_{BC}^{\top}} \vec{n_L} &= 0
 	\\
-	\myvec{8 & 7}\vec{n} &= 0
+	\myvec{8 & 7}\vec{n_L} &= 0
 	\\
-	\vec{n} &= \myvec{7 \\ -8}
+	\vec{n_L} &= \myvec{7 \\ -8}
 	\\
-	\vec{n}^{\top} &= \myvec{7 & -8}
+	\vec{n_L}^{\top} &= \myvec{7 & -8}
     \end{align}
     The normal equation of the line L is given by, 
     \begin{align}
-	\vec{n}^{\top}(\vec{X} - \vec{A}) &= 0
+	\vec{n_L}^{\top}(\vec{X} - \vec{A}) &= 0
 	\\
 	\myvec{7 & -8}(\myvec{x \\ y} - \myvec{3 \\ 8})&= 0
 	\\
