@@ -19,6 +19,7 @@
 \bibliographystyle{IEEEtran}
 %\bibliographystyle{ieeetr}
 \let\vec\mathbf
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
 \newcommand{\question}{\noindent \textbf{Question: }}
@@ -49,11 +50,11 @@
     \begin{align}
     &\vec{m} = \vec{C} - \vec{B}
     \\
-	&\vec{m} = \myvec{6 \\ -6} - \myvec{-1 \\ 2}
+	\implies &\vec{m} = \myvec{6 \\ -6} - \myvec{-1 \\ 2}
 	\\
-	&\vec{m} = \myvec{7 \\ -8}
+	\implies &\vec{m} = \myvec{7 \\ -8}
     \end{align}
-    We know that, if the direction vector of a line is represented by a matrix \vec{m}=\myvec{d_1\\d_2} then the slope for the same can be represented by $(\frac{d_2}{d_1})$.\\
+    We know that, if the direction vector of a line is represented by a matrix \vec{m}=\myvec{d_1\\d_2} then the slope for the same can be represented by $\brak{\frac{d_2}{d_1}}$.\\
     \medskip\\
     \textbf{Therefore in this case the slope of line BC can be given as:}
     \begin{align}
@@ -62,32 +63,34 @@
     \medskip\\
 \item Now, let $n_{BC}$ be the normal vector of the line BC, hence we know that;
     \begin{align}
-	\vec{m}^{\top}\vec{n_{BC}} &= 0
+	&\vec{m}^{\top}\vec{n_{BC}} = 0
 	\\
-	\myvec{7 & -8}\vec{n_{BC}} &= 0
+	\implies &\myvec{7 & -8}\vec{n_{BC}} = 0
 	\\
-	\vec{n_{BC}} &= \myvec{8 \\ 7}
+	\implies &\vec{n_{BC}} = \myvec{8 \\ 7}
 	\\
-	\vec{n_{BC}^{\top}} &= \myvec{8 & 7}
+	\implies &\vec{n_{BC}^{\top}} = \myvec{8 & 7}
     \end{align}
      Let L be the line that passes through A and is perpendicular to BC, and let $n_L$ be the normal vector of the line L, in such a case we can say that;
      \begin{align}
-	\vec{n_{BC}^{\top}} \vec{n_L} &= 0
+	&\vec{n_{BC}^{\top}} \vec{n_L} = 0
 	\\
-	\myvec{8 & 7}\vec{n_L} &= 0
+	\implies &\myvec{8 & 7}\vec{n_L} = 0
 	\\
-	\vec{n_L} &= \myvec{7 \\ -8}
+	\implies &\vec{n_L} = \myvec{7 \\ -8}
 	\\
-	\vec{n_L}^{\top} &= \myvec{7 & -8}
+	\implies &\vec{n_L}^{\top} = \myvec{7 & -8}
     \end{align}
     The normal equation of the line L is given by, 
     \begin{align}
-	\vec{n_L}^{\top}(\vec{X} - \vec{A}) &= 0
+	&\vec{n_L}^{\top} \brak{\vec{X}-\vec{A}} = 0
 	\\
-	\myvec{7 & -8}(\myvec{x \\ y} - \myvec{3 \\ 8})&= 0
+	\implies &\myvec{7 & -8}\brak{\vec{X} - \myvec{3 \\ 8}}= 0
 	\\
-	\myvec{7 & -8}\myvec{x - 3 \\ y - 8} &= 0
+	\implies &\myvec{7 & -8}\vec{X}- \myvec{7 & -8}\myvec{3\\8}= 0
+	\\
+	\implies &\myvec{7 & -8}\vec{X} = \brak{-43}
     \end{align}
-    \textbf{Thus, line L $\equiv \myvec{7 & -8}\myvec{x - 3 \\ y - 8} = 0$}
+    \textbf{Thus, line L $\equiv \myvec{7 & -8}\vec{X} = \brak{-43}$}
 \end{enumerate}
 \end{document} 
