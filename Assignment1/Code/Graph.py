@@ -5,6 +5,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#Obtaining perpendicular vector
+def normvec(AB):
+    return np.matmul(omat,np.matmul(AB,dvec))
+
 def line_dir(m,A,k1,k2):
   len = 10
   d = A.shape[0]
@@ -26,12 +30,6 @@ def line_pt(A,B):
     x_AB[:,i]= temp1.T
   return x_AB
 
-#Obtaining perpendicular vector
-def perp_vector(m):
-  m[1],m[0] =m[0],-m[1]
-  return m
-    
-\
 plt.close('all')
 # Figure and Axes
 fig1=plt.figure(1)
@@ -43,6 +41,9 @@ ax1.axis('square')
 A = np.array([3, 8])
 B = np.array([-1, 2])
 C = np.array([6, -6])
+BC=np.vstack((B,C)).T
+dvec=np.array([-1,1])
+omat=np.array([[0,1],[-1,0]])
 
 
 # Plotting Sides of Triangle
@@ -54,8 +55,7 @@ plt.plot(xBC[0,:],xBC[1,:])
 plt.plot(xCA[0,:],xCA[1,:])
 
 # Plot Line perpendicular to BC through A
-m=(B-C)
-m=perp_vector(m)
+m=normvec(BC)
 xA = line_dir(m,A,-0.3,2)
 plt.plot(xA[0,:],xA[1,:],label='8y-7x=43')
 
