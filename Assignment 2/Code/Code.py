@@ -2,59 +2,33 @@
 Mayuri CHourasia
 BT21BTECH11001
 '''
-# Importing Library
+#Python libraries for math and graphics
 import numpy as np
+import mpmath as mp
+import matplotlib.pyplot as plt
+from numpy import linalg as LA
 
-def inverse(arr):
-    # Finding an inverse of given array
-    inverse_array = np.linalg.inv(arr)
-    return(inverse_array)
+#Input matrix
+A = np.array(([1,1,1],[2,5,7],[2,1,-1]))
+b = np.array([9,52,0])
+Ainv = LA.inv(A)
+x = Ainv@b
 
-# Function to multiply two matrices
-def multmatrice(A,B):
-    matrix=[]
-    result = [[0],[0],[0]]
-    for i in range(len(A)):
-        for j in range(len(B[0])):
-            for k in range(len(B)):
-                result[i][j] += A[i][k] * B[k][j]
-    for r in result:
-        matrix.append(r)
-    return matrix        
-    
-#taking the co-efficient matrix and the constant matrix as inputs
-coeff_mat = np.array([[1, 1, 1],
-				[2, 5, 7],
-				[2, 1, -1]])
-const_mat = np.array([[9],[52],[0]])
+print(12*Ainv,x,A@x)
 
-inv_mat = inverse(coeff_mat)                    #coeff_mat = co-efficient matrix
-                                                #const_mat = constant matrix
-fin_mat = multmatrice(inv_mat,const_mat)        #inv_mat = inverted matrix
-                                                #fin_mat = final matrix
-a=int(fin_mat[0][0])                             
-b=int(fin_mat[1][0])                            
-c=int(fin_mat[2][0])
-
-x=1/a
-y=1/b
-z=1/c
-
-print('Solution for the given system of equations is:')
-print('x =',x )
-print('y =',y)
-print('z =',z)
+a=1/x[0]
+b=1/x[1]
+c=1/x[2]
+print('x =',a)
+print('y =',b)
+print('z =',c)
 
 '''
 OUTPUT:
-
-Solution for the given system of equations is:
+[[ 36.  -6.  -6.]
+ [-48.   9.  15.]
+ [ 24.  -3.  -9.]] [1. 3. 5.] [ 9. 52.  0.]
 x = 1.0
 y = 0.3333333333333333
 z = 0.2
-
-
-** Process exited - Return Code: 0 **
-Press Enter to exit terminal
-
 '''
