@@ -210,23 +210,23 @@ events (H, H), (H, T), (T, 1), (T, 2), (T, 3) (T, 4), (T, 5), (T, 6) are $\frac{
         node[above] {$\frac{1}{2}$}
     };
 \end{tikzpicture}\\
-Let F be the event that ‘there is at least one tail’ and E be the event ‘the die shows a number greater than 4’. \\
+Let X be a randomn variable such that, X=0 be the event that ‘there is at least one tail’ and X=1 be the event ‘the die shows a number greater than 4’. \\
 Then\\
 \begin{align}
-    F &= {(H,T), (T,1), (T,2), (T,3), (T,4), (T,5), (T,6)}\\
-E &= {(T,5), (T,6)} \text{ and } E\cap F = {(T,5), (T,6)}
+    P(X=0) &= {(H,T), (T,1), (T,2), (T,3), (T,4), (T,5), (T,6)}\\
+P(X=1) &= {(T,5), (T,6)} \text{ and } E\cap F = {(T,5), (T,6)}
 \end{align}
 Now\\
 \begin{align}
-    P(F) &=\sum_{i=1}^{6}{P({(T,i)})}\\
+    P(X=1) &=\sum_{i=1}^{6}{P({(T,i)})}\\
     &=\frac{1}{4}+\frac{1}{4}+\frac{1}{12}+\frac{1}{12}+\frac{1}{12}+\frac{1}{12}+\frac{1}{12}+\frac{1}{12}=\frac{3}{4}
 \end{align}
 And
 \begin{align}
-    P(E\cap F)a &= P ({(T,5)}) + P ({(T,6)})\\ &=\frac{1}{12}+\frac{1}{12}=\frac{1}{6}
+    P(X=0\cap X=1) &= P ({(T,5)}) + P ({(T,6)})\\ &=\frac{1}{12}+\frac{1}{12}=\frac{1}{6}
 \end{align} 
 hence
 \begin{align}
-    P(E|F)=\frac{P(E\cap F)}{P(F)}=\frac{\frac{1}{6}}{\frac{3}{4}}=\frac{2}{9}
+    P(X=0|X=1)=\frac{P(X=0\cap X=1)}{P(X=1)}=\frac{\frac{1}{6}}{\frac{3}{4}}=\frac{2}{9}
 \end{align}
 \end{document}
