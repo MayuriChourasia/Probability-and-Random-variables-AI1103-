@@ -1,0 +1,87 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\def\inputGnumericTable{}
+\usepackage[latin1]{inputenc}                               \usepackage{color}                                          \usepackage{array}                                          \usepackage{longtable}                                      \usepackage{calc}                                           \usepackage{multirow}                                       \usepackage{hhline}                                         \usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}                  
+\title{AI1110 \\ Assignment 8}
+\author{Mayuri Chourasia\\BT21BTECH11001}
+\date{20 May 2022}
+\begin{document}
+	% The title page
+	\begin{frame}
+	\titlepage
+	\end{frame}
+	% The question
+    \section{Question}
+	\begin{frame}{CBSE Probability Grade 12 Exercise 13.5 Question 4}
+	Five cards are drawn successively with replacement from a well-shuffled deck of 52 cards. What is the probability that\\
+(i) all the five cards are spades?\\
+(ii) only 3 cards are spades?\\
+(iii) none is a spade?
+	\end{frame}
+	
+    \section{Solution}
+	\begin{frame}{Solution}
+	Let a Bernoulli random variable $X \in \cbrak{0,1}$ denote whether the chosen card is a spade or not.
+	\begin{table}[ht!]
+	\centering
+	\input{table.tex}
+	\caption{Bernoulli distribution}
+	\label{table:table1}	
+	\end{table}
+	\end{frame}
+
+	\begin{frame}
+	Consider an experiment consisting of $5$ Bernoulli trials and denote the number of spades obtained by a binomial random variable $Y \in \cbrak{0,1,2,3,4,5}$. This can be expressed as a binomial distribution with probability mass function given by:
+	\begin{align}
+	p_Y(k) = \binom{n}{k} (1-p)^{n-k} p^k,~ 0 \le k \le n
+	\end{align}
+	where $n = 5$ and $p = 0.25$
+	\end{frame}
+
+	% The answer
+\section{Answer}
+	\begin{frame}{Answer}
+	The probability of getting 5 spades can be given as:
+	\begin{align}
+	p_Y(5)&= \binom{5}{5} (1-0.25)^0 (0.25)^5 \\
+	&\approx 0.97 \times 10^{-3}
+	\end{align}
+	\end{frame}
+	\begin{frame}{Answer}
+	The probability of getting 3 spades can be given as:
+	\begin{align}
+	p_Y(3)&= \binom{5}{3} (1-0.25)^2 (0.25)^3 \\
+	&\approx 0.088
+	\end{align}
+	\end{frame}
+	\begin{frame}{Answer}
+	The probability of getting no spades can be given as:
+	\begin{align}
+	p_Y(0)&= \binom{5}{0} (1-0.25)^5 (0.25)^0 \\
+	&\approx 0.237
+	\end{align}
+	\end{frame}
+	% The plot
+	\section{Plot}
+	\begin{frame}{Plot of the probability mass function}
+	\centering
+	\includegraphics[height=0.8\paperheight]{plot.png}
+	\end{frame}
+	
+\end{document}
