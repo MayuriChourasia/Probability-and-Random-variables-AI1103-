@@ -1,0 +1,78 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\def\inputGnumericTable{}
+\usepackage[latin1]{inputenc}                               \usepackage{color}                                          \usepackage{array}                                          \usepackage{longtable}                                      \usepackage{calc}                                           \usepackage{multirow}                                       \usepackage{hhline}                                         \usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}                  
+\title{AI1110 \\ Assignment 9}
+\author{Mayuri Chourasia\\BT21BTECH11001}
+\date{27 May 2022}
+\begin{document}
+	% The title page
+	\begin{frame}
+	\titlepage
+	\end{frame}
+	\begin{frame}{Outline}
+    		\tableofcontents
+	\end{frame}
+	
+	% The question
+    \section{Question}
+	\begin{frame}{Papoullis Chapter 3 Exercise: 3.5}
+	A shipment contains K good and N - K defective components.We pick at random n $\leq$ K components and test them. Show that the probability p that k of the tested components are good equals:
+	\begin{align}
+	    p=\binom{K}{k}\binom{N-K}{n-k} \Big/ \binom{N}{n}
+	\end{align}
+	\end{frame}
+	
+\section{Solution}
+	\begin{frame}{Solution}
+In this experiment, the total number of outcomes is the number of ways of picking n out of N objects, that is :
+\begin{align}
+    P_1=\binom{N}{n}
+\end{align}
+\end{frame}
+\begin{frame}
+The number of ways of picking k out of the K good components equals
+\begin{align}
+    P_2=\binom{K}{k}
+\end{align}
+\end{frame}
+\begin{frame}
+The number of ways of picking n-k out of the N-K defective components equals 
+\begin{align}
+    P_3=\binom{N-K}{n-k}
+\end{align}
+\end{frame}
+\begin{frame}
+Hence, the number of ways of picking k good components and n-k defective components equals
+\begin{align}
+    P_4=&P_2\times P_3\\
+    &=\binom{K}{k}\binom{N-K}{n-k}
+\end{align}
+	\end{frame}
+
+\section{Answer}
+	\begin{frame}
+	Hence, from the above equations, we can finally state that:
+	\begin{align}
+	    P_f=&P_4/P_1\\
+	    &=\binom{K}{k}\binom{N-K}{n-k} \Big/ \binom{N}{n}
+	\end{align}
+	\end{frame}
+	
+\end{document}
